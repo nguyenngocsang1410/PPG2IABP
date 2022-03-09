@@ -1,0 +1,4 @@
+seaborn
+matplotlib.pyplot
+psycopg2
+scipy
