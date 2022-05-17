@@ -17,11 +17,11 @@ save_processing = false;
 if ispc
     %Windows (trabajando siempre sobre el google drive) 
     %Processing Folder
-    addpath('ADJUST TO YOUR PATH\processing')
-    output_path = 'ADJUST TO YOUR PATH\datasets\ABP_PPG';
+    addpath('E:\Documents\GitHub\PPG2IABP\processing')
+    output_path = 'E:\Documents\GitHub\PPG2IABP\datasets\ABP_PPG';
     %Filtered Dataframe
-    addpath('ADJUST TO YOUR PATH\\df_filtered')
-    cd('ADJUST TO YOUR PATH\\processing')
+    addpath('E:\Documents\GitHub\PPG2IABP\df_filtered')
+    cd('E:\Documents\GitHub\PPG2IABP\processing')
 else
     % Linux
     % Processing Folder
@@ -52,6 +52,7 @@ fbp_c = find(strcmp('FBP',cellstr(channels_selected)));
 
 %Include PTT Feature Extraction (FE)
 PTT = false;
+
 % Include Mean Pulse FE
 mean_pulse_processing = true;
 
@@ -71,12 +72,12 @@ df_filtered.idx_signal =  idx_signal;
 % number of files
 n_files = size(df_filtered,1);
 
-% windows threshold (from Gašper Slapničar: https://github.com/gslapnicar/bp-estimation-mimic3)
+% windows threshold (from Gašper Slapniĝar: https://github.com/gslapnicar/bp-estimation-mimic3)
 w_flat = 15;    % flat lines window
 w_peaks = 5;    % flat peaks window
 w_fix = 15;     % flat join window ?
 
-% thresholds (from Gašper Slapničar: https://github.com/gslapnicar/bp-estimation-mimic3)
+% thresholds (from Gašper Slapniĝar: https://github.com/gslapnicar/bp-estimation-mimic3)
 t_peaks = 0.05; % percentage of tolerated flat peaks
 t_flat = 0.05;  % percentage of tolerated flat lines
 
@@ -85,7 +86,7 @@ p_ok_pulses = 0.75;
 
 %time to index
 fs = 125; %sampling rate
-len_signal = ventana*fs;
+len_signal = ventana*fs; %ventana 15s
 intervalo = intervalo * 60 * fs; % intervalo in min --> sec
 i_global = signal_i*60*fs; % signal_i in min -->sec
 ciclo = (intervalo+len_signal);
